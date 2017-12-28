@@ -3,15 +3,17 @@ a { text-decoration: none; color: #FFF;}
 ::selection{ color: #0A369D; background-color: #FFF;}
 
 /* LOADER */
-.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 10; display: flex; animation: mymove 3s infinite;}
-.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 3s infinite;}
+.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 10; display: flex; animation: mymove 2s infinite;}
+.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
 @keyframes mymove {
     0%   {background-color: #0A369D;}
-    100% {background-color: #FB3640;}
+    50% {background-color: #FB3640;}
+    100%   {background-color: #0A369D;}
 }
 @keyframes mysecondmove {
     0%   {color: #FB3640;}
-    100% {color: #0A369D;}
+    50% {color: #0A369D;}
+    100%   {color: #FB3640;}
 }
 
 /* CURSOR */
