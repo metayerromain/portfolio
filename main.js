@@ -27,10 +27,10 @@ for (let i = 0; i < linkCursor.length; i++) {
     circleInner.classList.remove("circle--animation--1");
   });
 
-  linkCursor[i].closest("a").addEventListener("click", function() {
-    return false;
-    circleInner.classList.remove("circle--animation--1");
-  });
+  // linkCursor[i].closest("a").addEventListener("click", function() {
+  //   return false;
+  //   circleInner.classList.remove("circle--animation--1");
+  // });
 }
 /**
  * ANIMATION TOP PAGE PROJECTS
