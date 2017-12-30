@@ -1,21 +1,21 @@
 @font-face {
     font-family: "montserrat";
-    src: url("../fonts/Montserrat-Medium.ttf") format("ttf") ;
+    src: url("../fonts/Montserrat-Medium.ttf");
     font-weight: normal;
 }
 @font-face {
     font-family: "montserrat";
-    src: url("../fonts/Montserrat-Black.otf") format("otf") ;
+    src: url("../fonts/Montserrat-Black.otf");
     font-weight: bold;
 }
 @font-face {
     font-family: "PT Mono";
-    src: url("../fonts/PTMono.ttc") format("ttc") ;
+    src: url("../fonts/PTMono.ttc");
     font-weight: normal;
 }
 @font-face {
     font-family: "Didot";
-    src: url("../fonts/Didot.ttc") format("ttc") ;
+    src: url("../fonts/Didot.ttc");
     font-weight: normal;
 }
 body { background-color: #0A369D; color: #FFF;}
