@@ -1,10 +1,31 @@
+@font-face {
+    font-family: "montserrat";
+    src: url("../fonts/Montserrat-Medium.ttf") format("ttf") ;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "montserrat";
+    src: url("../fonts/Montserrat-Black.otf") format("otf") ;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "PT Mono";
+    src: url("../fonts/PTMono.ttc") format("ttc") ;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Didot";
+    src: url("../fonts/Didot.ttc") format("ttc") ;
+    font-weight: normal;
+}
 body { background-color: #0A369D; color: #FFF;}
 a { text-decoration: none; color: #FFF;}
 ::selection{ color: #0A369D; background-color: #FFF;}
 
 /* LOADER */
-.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 10; display: flex; animation: mymove 2s infinite;}
+.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 100; display: flex; opacity: 1; transition: all 1s; animation: mymove 2s infinite;}
 .myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
+.loader--animation{ opacity: 0;}
 @keyframes mymove {
     0%   {background-color: #0A369D;}
     50% {background-color: #FB3640;}
@@ -25,7 +46,7 @@ a { text-decoration: none; color: #FFF;}
 /* CONTENU STATIC */
 .link{color: #FFF; transition: color .5s;}
 .margin { margin: auto;}
-.header { z-index: 3; width: 80%; margin-top: 80px; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
+.header { z-index: 5; width: 80%; margin-top: 80px; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
 .redColor { color: #FB3640;}
 .sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
 .busto {margin-left: 50px;}
@@ -40,7 +61,7 @@ a { text-decoration: none; color: #FFF;}
 .imgSlide--1{ background: url(../img/urbexCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--2{ background: url(../img/bbMarketCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--3{ background: url(../img/bustoCover.jpg) no-repeat; background-size: cover;}
-.sliderInformationContainer { z-index: 50; position: absolute;left: 0; right: 0; width: 80%; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
+.sliderInformationContainer { z-index: 0; position: absolute;left: 0; right: 0; width: 80%; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
 .year { font-weight: lighter; color: #FB3640; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
 .poste { margin-top: 10px; font-weight: bold; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
 .company { margin-top: 5px; font-weight: bolder; font-size: 80px; letter-spacing: 100px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
@@ -50,7 +71,7 @@ a { text-decoration: none; color: #FFF;}
 .activeSlide{ opacity: 1; z-index: 1;}
 .poste--animation{ margin-left: 0; letter-spacing: 9px; opacity: 1;}
 .company--animation{ margin-left: 0; letter-spacing: 40px; opacity: 1;}
-.img--animation{ right: 0; opacity: .6;}
+.img--animation{ right: 0; opacity: .5;}
 
 /* PAGE ABOUT */
 .containerInfos{ width: 80%; margin: auto;}
@@ -65,7 +86,7 @@ a { text-decoration: none; color: #FFF;}
 .backText{ background-color: #FFF; padding: 0 5px; color: #0A369D;}
 .contact{ margin-top: 20px; margin-left: 150px; opacity: 0; letter-spacing: 3px; transition: all 1s;}
 .contact a{ margin-right: 50px;}
-.contactItem{ display: inline; font-family: "PT Mono"; font-weight: bold; font-size: 14px; color: #FFF; transition: color .5s linear;}
+.contactItem{ display: inline; font-family: "PT Mono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
 
 /* ANIMATION ABOUT */
 .text--animation{ letter-spacing: 2px; opacity: 1; margin-left: 0;}
@@ -78,6 +99,7 @@ a { text-decoration: none; color: #FFF;}
 .backgroundHeader{ width: 100%; height: 150px; background-color: #0A369D; left: 0; position: fixed; z-index: 2; opacity: 0; }
 
 .contenuProject{ opacity: 0; letter-spacing: 1px; transition: all 1s;}
+.backgroundImage{ display: none; z-index: -3; position: fixed; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.6); top: 0; left: 0;}
 
 .pageContainer{ width: 80%; margin: auto; text-align: center; font-family: "montserrat";}
 .companyTitle{  font-weight: bold; font-size: 64px; letter-spacing: 10px; text-transform: uppercase; text-align: center; padding-top: 100px; opacity: 0; transition: all 1s;}
@@ -96,7 +118,7 @@ a { text-decoration: none; color: #FFF;}
 .right{ text-align: left; width: 40%;}
 .footer{ position: relative; height: 300px; background-color: #FFF; color: #0A369D;}
 .centerVerticalFooter{ position: absolute; top: 50%; transform: translateY(-50%); width: 100%;}
-.nextProject{ font-family: "PT Mono"; font-weight: bold; font-size: 18px; letter-spacing: 5px; text-align: center;}
+.nextProject{ font-family: "PT Mono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
 .titleNextProject{ font-family: "didot"; font-size: 64px; text-align: center;}
 
 /* ANIMATION PROJECTS */
