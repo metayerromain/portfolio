@@ -9,7 +9,7 @@
     font-weight: bold;
 }
 @font-face {
-    font-family: "PT Mono";
+    font-family: "PTMono";
     src: url("../fonts/PTMono.ttc");
     font-weight: normal;
 }
@@ -24,7 +24,7 @@ a { text-decoration: none; color: #FFF;}
 
 /* LOADER */
 .loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 100; display: flex; opacity: 1; transition: all 1s; animation: mymove 2s infinite;}
-.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
+.myName{ font-family: "PTMono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
 .loader--animation{ opacity: 0;}
 @keyframes mymove {
     0%   {background-color: #0A369D;}
@@ -46,9 +46,9 @@ a { text-decoration: none; color: #FFF;}
 /* CONTENU STATIC */
 .link{color: #FFF; transition: color .5s;}
 .margin { margin: auto;}
-.header { z-index: 5; width: 80%; margin-top: 80px; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
+.header { z-index: 5; width: 80%; margin-top: 80px; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PTMono"; opacity: 0; transition: all 3s;}
 .redColor { color: #FB3640;}
-.sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
+.sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PTMono"; opacity: 0; transition: all 3s;}
 .busto {margin-left: 50px;}
 .bbMarket {margin-left: 50px;}
 .sliderButtons span:hover{ cursor: pointer;}
@@ -77,7 +77,7 @@ a { text-decoration: none; color: #FFF;}
 .containerInfos{ width: 80%; margin: auto;}
 .imgAboutContainer { background: url(../img/aboutCover.jpg) no-repeat center; background-size: cover; z-index: 0; position: absolute; height: 100vh; width: 67%; right: -200px; opacity: 0; transition: all 1s;}
 .leftResume{position: relative; width: 24%;}
-.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PT Mono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: all 1s;}
+.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PTMono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: all 1s;}
 .trait{ vertical-align: middle; display: inline-block; width: 21px; height: 5px; background-color: #FFF; margin-right: 10px; transition: background-color .5s linear;}
 .resume{ text-align: right; color: #FFF; transition: color .5s linear;}
 .textResume{ color: #FFF; transition: color .5s linear;}
@@ -86,7 +86,7 @@ a { text-decoration: none; color: #FFF;}
 .backText{ background-color: #FFF; padding: 0 5px; color: #0A369D;}
 .contact{ margin-top: 20px; margin-left: 150px; opacity: 0; letter-spacing: 3px; transition: all 1s;}
 .contact a{ margin-right: 50px;}
-.contactItem{ display: inline; font-family: "PT Mono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
+.contactItem{ display: inline; font-family: "PTMono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
 
 /* ANIMATION ABOUT */
 .text--animation{ letter-spacing: 2px; opacity: 1; margin-left: 0;}
@@ -118,7 +118,7 @@ a { text-decoration: none; color: #FFF;}
 .right{ text-align: left; width: 40%;}
 .footer{ position: relative; height: 300px; background-color: #FFF; color: #0A369D;}
 .centerVerticalFooter{ position: absolute; top: 50%; transform: translateY(-50%); width: 100%;}
-.nextProject{ font-family: "PT Mono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
+.nextProject{ font-family: "PTMono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
 .titleNextProject{ font-family: "didot"; font-size: 64px; text-align: center;}
 
 /* ANIMATION PROJECTS */
