@@ -9,7 +9,7 @@
     font-weight: bold;
 }
 @font-face {
-    font-family: "PTMono";
+    font-family: "PT Mono";
     src: url("../fonts/PTMono.ttf");
     font-weight: normal;
 }
@@ -23,8 +23,8 @@ a { text-decoration: none; color: #FFF;}
 ::selection{ color: #0A369D; background-color: #FFF;}
 
 /* LOADER */
-.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100%; z-index: 100; display: flex; opacity: 1; transition: all 1s; animation: mymove 2s infinite;}
-.myName{ font-family: "PTMono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
+.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100vw; z-index: 100; display: flex; opacity: 1; transition: all 1s; animation: mymove 2s infinite;}
+.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
 .loader--animation{ opacity: 0;}
 @keyframes mymove {
     0%   {background-color: #0A369D;}
@@ -45,14 +45,14 @@ a { text-decoration: none; color: #FFF;}
 
 /* CONTENU STATIC */
 .link{color: #FFF; transition: color .5s;}
-.margin { margin: auto;}
-.header { z-index: 5; width: 80%; margin-top: 80px; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PTMono"; opacity: 0; transition: all 3s;}
+.header { z-index: 5; width: 80%; top: 80px; margin: auto; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
 .redColor { color: #FB3640;}
-.sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PTMono"; opacity: 0; transition: all 3s;}
+.sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; margin: auto; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
 .busto {margin-left: 50px;}
 .bbMarket {margin-left: 50px;}
 .sliderButtons span:hover{ cursor: pointer;}
 .activeButton{ color: #FB3640; pointer-events: none;}
+.mobileProject{ display: none;}
 
 /* SLIDER */
 .sliderContent { width: 100%; height: 100vh; }
@@ -61,7 +61,7 @@ a { text-decoration: none; color: #FFF;}
 .imgSlide--1{ background: url(../img/urbexCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--2{ background: url(../img/bbMarketCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--3{ background: url(../img/bustoCover.jpg) no-repeat; background-size: cover;}
-.sliderInformationContainer { z-index: 0; position: absolute;left: 0; right: 0; width: 80%; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
+.sliderInformationContainer { z-index: 0; position: absolute;left: 0; right: 0; width: 80%; margin: auto; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
 .year { font-weight: lighter; color: #FB3640; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
 .poste { margin-top: 10px; font-weight: bold; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
 .company { margin-top: 5px; font-weight: bolder; font-size: 80px; letter-spacing: 100px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
@@ -77,7 +77,7 @@ a { text-decoration: none; color: #FFF;}
 .containerInfos{ width: 80%; margin: auto;}
 .imgAboutContainer { background: url(../img/aboutCover.jpg) no-repeat center; background-size: cover; z-index: 0; position: absolute; height: 100vh; width: 67%; right: -200px; opacity: 0; transition: all 1s;}
 .leftResume{position: relative; width: 24%;}
-.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PTMono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: all 1s;}
+.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PT Mono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: all 1s;}
 .trait{ vertical-align: middle; display: inline-block; width: 21px; height: 5px; background-color: #FFF; margin-right: 10px; transition: background-color .5s linear;}
 .resume{ text-align: right; color: #FFF; transition: color .5s linear;}
 .textResume{ color: #FFF; transition: color .5s linear;}
@@ -86,7 +86,7 @@ a { text-decoration: none; color: #FFF;}
 .backText{ background-color: #FFF; padding: 0 5px; color: #0A369D;}
 .contact{ margin-top: 20px; margin-left: 150px; opacity: 0; letter-spacing: 3px; transition: all 1s;}
 .contact a{ margin-right: 50px;}
-.contactItem{ display: inline; font-family: "PTMono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
+.contactItem{ display: inline; font-family: "PT Mono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
 
 /* ANIMATION ABOUT */
 .text--animation{ letter-spacing: 2px; opacity: 1; margin-left: 0;}
@@ -118,7 +118,7 @@ a { text-decoration: none; color: #FFF;}
 .right{ text-align: left; width: 40%;}
 .footer{ position: relative; height: 300px; background-color: #FFF; color: #0A369D;}
 .centerVerticalFooter{ position: absolute; top: 50%; transform: translateY(-50%); width: 100%;}
-.nextProject{ font-family: "PTMono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
+.nextProject{ font-family: "PT Mono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
 .titleNextProject{ font-family: "didot"; font-size: 64px; text-align: center;}
 
 /* ANIMATION PROJECTS */
@@ -133,3 +133,34 @@ a { text-decoration: none; color: #FFF;}
 .textResume.fadeout{ color: #FB3640;}
 .contactItem.fadeItemsContact{ color: #FB3640;}
 .school:hover{ text-decoration: underline; cursor: pointer;}
+
+/* OVERLAY SUR MOBILE */
+.overlayProjectMobile{ z-index: -1; opacity: 0; position: fixed; left: 50vw; top: 50vh; transform: translate(-50%, -50%); margin: auto; width: 90vw; height: 90vh; background-color: #FFF; color: #0A369D; transition: all .5s;}
+.centerItems{ margin: 45vh auto; transform: translateY(-50%); width: 70%;}
+.itemsOverlay{ font-size: 24px; opacity: 0; font-family: "montserrat"; font-weight: bold; text-transform: uppercase; margin-left: 100px; letter-spacing: 15px; line-height: 30px; transition: all 1s;}
+.itemsOverlay:nth-child(n+2) { margin-top: 50px;}
+.overlayCloseButton{ position: absolute; bottom: 50px; width: 70%; left: 0; right: 0; margin: auto; font-family: "PT Mono"; font-size: 12px; opacity: 0; transition: all 1s;}
+
+.overlayProject--animation{ z-index: 999; opacity: 1;}
+.itemsOverlay--animation{ letter-spacing: 3px; margin-left: 0; opacity: 1;}
+.overlayCloseButton--animation{ opacity: 1;}
+/* MEDIA QUERIES */
+@media only screen and (min-width : 375px) and (max-width : 700px) {
+    /* LOADER */
+    .myName{ font-size: 32px;}
+
+    /* HOMEPAGE */
+    .header{ top: 50px; width: 90vw; font-size: 12px; position: absolute;}
+    .sliderInformationContainer { width: 90vw; text-align: left; z-index: 6;}
+    .year { font-size: 24px; letter-spacing: 9px;}
+    .poste { font-size: 24px; letter-spacing: 9px;}
+    .company { font-size: 24px; letter-spacing: 18px; margin-top: 40px; line-height: 30px;}
+    .imgSliderContainer { width: 100vw;}
+    .imgSlide--1{ background-position: left;}
+    .imgSlide--2{ background-position: left;}
+    .imgSlide--3{ background-position: left;}
+    .sliderButtons{ bottom: 50px; font-size: 12px; width: 90vw;}
+    .mobileProject{ display: block;}
+    .buttonSlide{ display: none;}
+
+}
