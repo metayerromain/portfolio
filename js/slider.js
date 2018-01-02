@@ -1,7 +1,12 @@
 var buttonChild = document.querySelectorAll(".buttonSlide");
-var bbMarket = document.querySelector(".bbMarket");
-var busto = document.querySelector(".busto");
-var urbexTravelers = document.querySelector(".urbexTravelers");
+var bbMarket = document.querySelectorAll(".bbMarket");
+var busto = document.querySelectorAll(".busto");
+var urbexTravelers = document.querySelectorAll(".urbexTravelers");
+
+var overlay = document.querySelector(".overlayProjectMobile");
+var overlayCloseButton = document.querySelector(".overlayCloseButton");
+var mobileProject = document.querySelector(".mobileProject");
+var itemsOverlay = document.querySelectorAll(".itemsOverlay");
 
 /**
  * ANIMATION AU LANCEMENT D'UNE PAGE
@@ -18,7 +23,7 @@ window.onload = function() {
   slideActive.classList.add("activeSlide");
 
   searchSlide(slideActive);
-  urbexTravelers.classList.add("activeButton");
+  urbexTravelers[0].classList.add("activeButton");
 };
 /**
  * FONCTION QUI GERE LES ANIMATIONS DE LA SLIDE ACTIVE
@@ -50,47 +55,86 @@ function searchSlide(slideActive) {
 }
 
 //CLIC SUR CHAQUE BOUTON DU SLIDER
-urbexTravelers.addEventListener("click", function() {
-  var activeSlide = document.querySelectorAll(".activeSlide");
-  for (var i = 0; i < activeSlide.length; i++) {
-    activeSlide[i].classList.remove("activeSlide");
-  }
-  for (var i = 0; i < buttonChild.length; i++) {
-    buttonChild[i].classList.remove("activeButton");
-  }
-  var slideActive = document.querySelector(".slide--1");
-  slideActive.classList.add("activeSlide");
+for (var i = 0; i < urbexTravelers.length; i++) {
+  urbexTravelers[i].index = i;
+  urbexTravelers[i].addEventListener("click", function(e) {
+    var activeSlide = document.querySelectorAll(".activeSlide");
+    for (var i = 0; i < activeSlide.length; i++) {
+      activeSlide[i].classList.remove("activeSlide");
+    }
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+    }
+    var slideActive = document.querySelector(".slide--1");
+    slideActive.classList.add("activeSlide");
 
-  searchSlide(slideActive);
-  urbexTravelers.classList.add("activeButton");
+    searchSlide(slideActive);
+    this.classList.add("activeButton");
+    closeOverlay();
+  });
+}
+
+for (var i = 0; i < bbMarket.length; i++) {
+  bbMarket[i].index = i;
+  bbMarket[i].addEventListener("click", function(e) {
+    var activeSlide = document.querySelectorAll(".activeSlide");
+
+    for (var i = 0; i < activeSlide.length; i++) {
+      activeSlide[i].classList.remove("activeSlide");
+    }
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+    }
+
+    var slideActive = document.querySelector(".slide--2");
+    slideActive.classList.add("activeSlide");
+
+    this.classList.add("activeButton");
+    searchSlide(slideActive);
+    closeOverlay();
+  });
+}
+
+for (var i = 0; i < busto.length; i++) {
+  busto[i].index = i;
+  busto[i].addEventListener("click", function(e) {
+    var activeSlide = document.querySelectorAll(".activeSlide");
+    for (var i = 0; i < activeSlide.length; i++) {
+      activeSlide[i].classList.remove("activeSlide");
+    }
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+    }
+    var slideActive = document.querySelector(".slide--3");
+    slideActive.classList.add("activeSlide");
+
+    searchSlide(slideActive);
+    this.classList.add("activeButton");
+    closeOverlay();
+  });
+}
+
+/**
+ * ANIMATION DE L'OVERLAY EN RESPONSIVE
+ */
+
+function closeOverlay() {
+  for (var i = 0; i < itemsOverlay.length; i++) {
+    itemsOverlay[i].classList.remove("itemsOverlay--animation");
+    itemsOverlay[i].classList.remove("activeButton");
+    overlayCloseButton.classList.remove("overlayCloseButton--animation");
+  }
+  overlay.classList.remove("overlayProject--animation");
+}
+
+mobileProject.addEventListener("click", function() {
+  overlay.classList.add("overlayProject--animation");
+  overlayCloseButton.classList.add("overlayCloseButton--animation");
+  for (var i = 0; i < itemsOverlay.length; i++) {
+
+    itemsOverlay[i].classList.add("itemsOverlay--animation");
+  }
 });
-
-bbMarket.addEventListener("click", function() {
-  var activeSlide = document.querySelectorAll(".activeSlide");
-  for (var i = 0; i < activeSlide.length; i++) {
-    activeSlide[i].classList.remove("activeSlide");
-  }
-  for (var i = 0; i < buttonChild.length; i++) {
-    buttonChild[i].classList.remove("activeButton");
-  }
-  var slideActive = document.querySelector(".slide--2");
-  slideActive.classList.add("activeSlide");
-
-  searchSlide(slideActive);
-  bbMarket.classList.add("activeButton");
-});
-
-busto.addEventListener("click", function() {
-  var activeSlide = document.querySelectorAll(".activeSlide");
-  for (var i = 0; i < activeSlide.length; i++) {
-    activeSlide[i].classList.remove("activeSlide");
-  }
-  for (var i = 0; i < buttonChild.length; i++) {
-    buttonChild[i].classList.remove("activeButton");
-  }
-  var slideActive = document.querySelector(".slide--3");
-  slideActive.classList.add("activeSlide");
-
-  searchSlide(slideActive);
-  busto.classList.add("activeButton");
+overlayCloseButton.addEventListener("click", function() {
+  closeOverlay();
 });
