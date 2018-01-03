@@ -44,6 +44,7 @@ a { text-decoration: none; color: #FFF;}
 .circle--animation--1 { transform: scale(1); opacity: .6;}
 
 /* CONTENU STATIC */
+.containerAll{ overflow-x: hidden;}
 .link{color: #FFF; transition: color .5s;}
 .header { z-index: 5; width: 80%; top: 80px; margin: auto; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
 .redColor { color: #FB3640;}
