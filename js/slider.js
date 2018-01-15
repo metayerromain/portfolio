@@ -7,6 +7,7 @@ var overlay = document.querySelector(".overlayProjectMobile");
 var overlayCloseButton = document.querySelector(".overlayCloseButton");
 var mobileProject = document.querySelector(".mobileProject");
 var itemsOverlay = document.querySelectorAll(".itemsOverlay");
+var spam = false;
 
 /**
  * ANIMATION AU LANCEMENT D'UNE PAGE
@@ -15,7 +16,9 @@ window.onload = function() {
   //La page chargé on enlève le loader
   var loader = document.querySelector(".loader");
   loader.classList.add("loader--animation");
-  loader.style.display = "none";
+  setTimeout(function() {
+    loader.style.display = "none";
+  }, 500);
 
   var activeSlide = document.querySelectorAll(".activeSlide");
 
@@ -25,6 +28,21 @@ window.onload = function() {
   searchSlide(slideActive);
   urbexTravelers[0].classList.add("activeButton");
 };
+
+// EVENT LISTENER SUR MON NOM
+var hover = document.querySelector(".romain");
+var fullName = document.querySelectorAll(".fullName");
+
+for (let i = 0; i < fullName.length; i++) {
+  hover.addEventListener("mouseover", function() {
+    fullName[i].classList.toggle("fullName--animation");
+  });
+  hover.addEventListener("mouseout", function() {
+    fullName[i].classList.toggle("fullName--animation");
+  });
+}
+
+
 /**
  * FONCTION QUI GERE LES ANIMATIONS DE LA SLIDE ACTIVE
  */
@@ -52,7 +70,77 @@ function searchSlide(slideActive) {
   company.classList.add("company--animation");
   year.classList.add("poste--animation");
   image.classList.add("img--animation");
+
 }
+
+//ONSCROLL
+window.addEventListener("mousewheel", function(e) {
+  var activeSlide = document.querySelector(".activeSlide");
+  var indexSlide = activeSlide.className.split(" ")[1].split("--")[1];
+  var indexSlideParse = parseInt(indexSlide);
+  var scroll = e.wheelDelta;
+
+  if (spam == false) {
+    if (scroll > 0 && scroll < 1000) {
+      var timer = null;
+      if (timer) {
+        clearTimeout(timer);
+      }
+      var timer = setTimeout(() => {
+        timer = null;
+        spam = true;
+        activeSlide.classList.remove("activeSlide");
+        indexSlideParse--;
+        if (indexSlideParse < 1) {
+          indexSlideParse = 3;
+        }
+
+        var active = document.querySelector(".slide--" + indexSlideParse);
+        active.classList.add("activeSlide");
+        searchSlide(active);
+
+        for (var i = 0; i < buttonChild.length; i++) {
+          buttonChild[i].classList.remove("activeButton");
+          buttonChild[indexSlideParse - 1].classList.add("activeButton");
+        }
+
+        setTimeout(() => {
+          spam = false;
+        }, 1000)
+      }, 500)
+    }
+    if (scroll < 0 && scroll > -1000) {
+
+      var timer = null;
+      if (timer) {
+        clearTimeout(timer);
+      }
+      var timer = setTimeout(() => {
+        timer = null;
+        spam = true;
+        activeSlide.classList.remove("activeSlide");
+        indexSlideParse++;
+        if (indexSlideParse > 3) {
+          indexSlideParse = 1;
+        }
+
+        var active = document.querySelector(".slide--" + indexSlideParse);
+        active.classList.add("activeSlide");
+        searchSlide(active);
+
+        for (var i = 0; i < buttonChild.length; i++) {
+          buttonChild[i].classList.remove("activeButton");
+          buttonChild[indexSlideParse - 1].classList.add("activeButton");
+        }
+
+        setTimeout(() => {
+          spam = false;
+        }, 1000)
+      }, 500)
+    }
+  }
+
+});
 
 //CLIC SUR CHAQUE BOUTON DU SLIDER
 for (var i = 0; i < urbexTravelers.length; i++) {
