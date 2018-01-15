@@ -63,8 +63,8 @@ a { text-decoration: none; color: #FFF;}
 .mobileProject{ display: none;}
 
 .sliderButtons { z-index: 2; position: absolute; right: 50px; top: 50vh; transform: translateY(-50%); opacity: 0; transition: opacity 3s;}
-.buttonSlide{ width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; background-color: none; display: block; margin-top: 30px; cursor: pointer;}
-.activeButton{ border-color: #FB3640;}
+.buttonSlide{ width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; background-color: none; display: block; margin: 30px auto; cursor: pointer; transition: all .5s;}
+.activeButton{ border-color: #FB3640; width: 20px; height: 20px;}
 .scrollButton{ display: block; transform: rotate(90deg); margin-top: 50px; position: absolute; right: -30px; letter-spacing: 3px; font-family: "PT Mono";}
 
 /* SLIDER */

@@ -32,6 +32,7 @@ window.onload = function() {
 // EVENT LISTENER SUR MON NOM
 var hover = document.querySelector(".romain");
 var fullName = document.querySelectorAll(".fullName");
+var circleNom = document.querySelector(".circle");
 
 for (let i = 0; i < fullName.length; i++) {
   hover.addEventListener("mouseover", function() {
