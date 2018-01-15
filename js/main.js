@@ -38,6 +38,7 @@ var headerProjectTitle = document.querySelector(".headerProjectTitle");
 var backgroundHeader = document.querySelector(".backgroundHeader");
 var backgroundHeader2 = document.querySelector(".backgroundHeader2");
 
+//ANIMATION HEADER
 window.addEventListener("scroll", function() {
   var scrollTop = window.scrollY;
   var height = heightDivCompany.offsetTop;
@@ -56,7 +57,7 @@ window.addEventListener("scroll", function() {
 });
 
 /**
- * ANIMATION DES LIENS
+ * ANIMATION DES LIENS SUR TOUTES LES PAGES DONC BLC
  */
 var hoverResume = document.querySelector(".hoverResume");
 var trait = document.querySelector(".trait");

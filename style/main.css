@@ -9,6 +9,11 @@
     font-weight: bold;
 }
 @font-face {
+    font-family: "montserrat";
+    src: url("../fonts/Montserrat-Bold.otf");
+    font-weight: 300;
+}
+@font-face {
     font-family: "PT Mono";
     src: url("../fonts/PTMono.ttf");
     font-weight: normal;
@@ -18,42 +23,49 @@
     src: url("../fonts/Didot.ttc");
     font-weight: normal;
 }
-body { background-color: #0A369D; color: #FFF;}
+body { background-color: #003261; color: #FFF;}
 a { text-decoration: none; color: #FFF;}
-::selection{ color: #0A369D; background-color: #FFF;}
+::selection{ color: #003261; background-color: #FFF;}
 
 /* LOADER */
-.loader{ background-color: #0A369D; position: fixed; height: 100vh; width: 100vw; z-index: 100; display: flex; opacity: 1; transition: all 1s; animation: mymove 2s infinite;}
-.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: mysecondmove 2s infinite;}
-.loader--animation{ opacity: 0;}
-@keyframes mymove {
-    0%   {background-color: #0A369D;}
+.loader{ background-color: #003261; top: 0; position: fixed; height: 100vh; width: 100vw; z-index: 100; display: flex; opacity: 1; transition: top .5s; animation: backgroundAnim 2s infinite;}
+.myName{ font-family: "PT Mono"; font-size: 64px; margin: auto; animation: nameAnim 2s infinite;}
+.loader--animation{ top: -100%;}
+@keyframes backgroundAnim {
+    0%   {background-color: #003261;}
     50% {background-color: #FB3640;}
-    100%   {background-color: #0A369D;}
+    100%   {background-color: #003261;}
 }
-@keyframes mysecondmove {
+@keyframes nameAnim {
     0%   {color: #FB3640;}
-    50% {color: #0A369D;}
+    50% {color: #003261;}
     100%   {color: #FB3640;}
 }
 
 /* CURSOR */
-.circle{ top: -30px; left: -30px; width: 60px; height: 60px; border-radius: 50%; pointer-events: none; display: block; position: fixed; z-index: 99;}
-.circleInner{ display: flex;position: absolute; top: 0; left: 0; width: 100%; border-radius: 50%; height: 100%; transform-origin: center; background-color: #FB3640; opacity: 0; transform: scale(0); transition: all .5s;}
-.circleInnerPlus{ margin: auto; font-size: 28px; font-family: "montserrat"; color: #0A369D;}
+.circle{ top: -45px; left: -45px; width: 90px; height: 90px; border-radius: 50%; pointer-events: none; display: block; position: fixed; z-index: 99;}
+.circleInner{ display: flex; position: absolute; top: 0; left: 0; width: 100%; border-radius: 50%; height: 100%; transform-origin: center; background-color: #FB3640; opacity: 0; transform: scale(0); transition: all .5s;}
+.circleInnerPlus{ margin: auto; font-size: 18px; font-family: "montserrat"; color: #003261; letter-spacing: 3px;}
 .circle--animation--1 { transform: scale(1); opacity: .6;}
 
 /* CONTENU STATIC */
 .containerAll{ overflow-x: hidden;}
+.fullName{ letter-spacing: -10px; opacity: 0; transition: all .5s;}
+.fullName--animation{ letter-spacing: 3px; opacity: 1;}
 .link{color: #FFF; transition: color .5s;}
-.header { z-index: 5; width: 80%; top: 80px; margin: auto; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
+.header { z-index: 5; width: 80%; top: 80px; margin: auto; display: flex; position: fixed; left: 0; right: 0; justify-content: space-between; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: opacity 3s;}
 .redColor { color: #FB3640;}
-.sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; margin: auto; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: all 3s;}
-.busto {margin-left: 50px;}
-.bbMarket {margin-left: 50px;}
-.sliderButtons span:hover{ cursor: pointer;}
-.activeButton{ color: #FB3640; pointer-events: none;}
+/* .sliderButtons { z-index: 2; position: absolute; left: 0; right: 0; margin: auto; bottom: 80px; width: 80%; letter-spacing: 3px; font-family: "PT Mono"; opacity: 0; transition: opacity 3s;}
+ .urbexTravelers{ cursor: pointer;}
+.busto {margin-left: 50px; cursor: pointer;}
+.bbMarket {margin-left: 50px; cursor: pointer;}
+.activeButton{ color: #FB3640; pointer-events: none;} */
 .mobileProject{ display: none;}
+
+.sliderButtons { z-index: 2; position: absolute; right: 50px; top: 50vh; transform: translateY(-50%); opacity: 0; transition: opacity 3s;}
+.buttonSlide{ width: 10px; height: 10px; border-radius: 50%; border: 2px solid white; background-color: none; display: block; margin-top: 30px; cursor: pointer;}
+.activeButton{ border-color: #FB3640;}
+.scrollButton{ display: block; transform: rotate(90deg); margin-top: 50px; position: absolute; right: -30px; letter-spacing: 3px; font-family: "PT Mono";}
 
 /* SLIDER */
 .sliderContent { width: 100%; height: 100vh; }
@@ -63,9 +75,9 @@ a { text-decoration: none; color: #FFF;}
 .imgSlide--2{ background: url(../img/bbMarketCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--3{ background: url(../img/bustoCover.jpg) no-repeat; background-size: cover;}
 .sliderInformationContainer { z-index: 0; position: absolute;left: 0; right: 0; width: 80%; margin: auto; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
-.year { font-weight: lighter; color: #FB3640; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
+.year { font-weight: lighter; color: #FB3640; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: margin-left 1s, letter-spacing 1s, opacity 1s; transition-delay: .2s;}
 .poste { margin-top: 10px; font-weight: bold; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
-.company { margin-top: 5px; font-weight: bolder; font-size: 80px; letter-spacing: 100px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
+.company { margin-top: 5px; font-weight: bolder; font-size: 80px; letter-spacing: 100px; margin-left: 100px; opacity: 0; transition: margin-left 1s, letter-spacing 1s, opacity 1s; transition-delay: .2s;}
 
 /* ANIMATION SLIDER */
 .homeAnimation{ opacity: 1;}
@@ -76,15 +88,15 @@ a { text-decoration: none; color: #FFF;}
 
 /* PAGE ABOUT */
 .containerInfos{ width: 80%; margin: auto;}
-.imgAboutContainer { background: url(../img/aboutCover.jpg) no-repeat center; background-size: cover; z-index: 0; position: absolute; height: 100vh; width: 67%; right: -200px; opacity: 0; transition: all 1s;}
+.imgAboutContainer { background: url(../img/aboutCover.jpg) no-repeat center; background-size: cover; z-index: 0; position: absolute; height: 100vh; width: 67%; right: -200px; opacity: 0; transition: right 1s, opacity 1s;}
 .leftResume{position: relative; width: 24%;}
-.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PT Mono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: all 1s;}
+.containerInfosLeft{ position: absolute;right: 150px; top: 50vh; transform: translateY(-50%); font-family: "PT Mono"; font-size: 24px; letter-spacing: 10px; color:#FB3640; opacity: 0; transition: right 1s, opacity 1s;}
 .trait{ vertical-align: middle; display: inline-block; width: 21px; height: 5px; background-color: #FFF; margin-right: 10px; transition: background-color .5s linear;}
 .resume{ text-align: right; color: #FFF; transition: color .5s linear;}
 .textResume{ color: #FFF; transition: color .5s linear;}
 .rightInfos{ position: relative; width: 50%; float: right; top: 50vh; transform: translateY(-50%);}
 .textInfos{ width: 80%; font-family: "montserrat"; font-weight: bold; font-size: 24px; line-height: 50px; margin-left: 150px; opacity: 0; letter-spacing: 1px; transition: all 1s;}
-.backText{ background-color: #FFF; padding: 0 5px; color: #0A369D;}
+.backText{ background-color: #FFF; padding: 0 5px; color: #003261;}
 .contact{ margin-top: 20px; margin-left: 150px; opacity: 0; letter-spacing: 3px; transition: all 1s;}
 .contact a{ margin-right: 50px;}
 .contactItem{ display: inline; font-family: "PT Mono"; font-size: 14px; color: #FFF; transition: color .5s linear;}
@@ -97,7 +109,7 @@ a { text-decoration: none; color: #FFF;}
 
 /* PAGES PROJECTS */
 .headerProjectTitle{ opacity: 0; top: 30px; transition: top 1s, opacity .3s; position: fixed; z-index: 3; text-align: center; width: 100%; font-size: 32px; text-transform: uppercase; font-family: "montserrat"; font-weight: bolder; letter-spacing: 3px;}
-.backgroundHeader{ width: 100%; height: 150px; background-color: #0A369D; left: 0; position: fixed; z-index: 2; opacity: 0; }
+.backgroundHeader{ width: 100%; height: 150px; background-color: #003261; left: 0; position: fixed; z-index: 2; opacity: 0; }
 
 .contenuProject{ opacity: 0; letter-spacing: 1px; transition: all 1s;}
 .backgroundImage{ display: none; z-index: -3; position: fixed; width: 100%; height: 100%; background-color: rgba(0,0,0, 0.6); top: 0; left: 0;}
@@ -112,15 +124,19 @@ a { text-decoration: none; color: #FFF;}
 .toolsItem{ opacity: .6; font-size: 18px; }
 .imgContainerProjects{ width: 80%; margin: 100px auto 100px;}
 .imgContainerProjects img{ width: 100%; height: auto;}
-.textProject{ text-align: center; font-size: 24px; line-height: 29px; opacity: .6; width: 80%; margin: auto; line-height: 40px;}
+.textProject{ text-align: center; font-size: 24px; line-height: 40px; opacity: .6; width: 80%; margin: auto;}
 .title{ font-weight: 500; font-size: 24px; letter-spacing: 5px; margin: 100px auto 100px;}
 .missions--Flex{ display: flex; justify-content: space-around; width: 80%; margin: auto; align-items: center; font-size: 24px; opacity: .6; line-height: 40px;}
 .left{ text-align: right; width: 40%;}
 .right{ text-align: left; width: 40%;}
-.footer{ position: relative; height: 300px; background-color: #FFF; color: #0A369D;}
+.footer{ position: relative; height: 300px; background-color: #FFF; color: #003261;}
 .centerVerticalFooter{ position: absolute; top: 50%; transform: translateY(-50%); width: 100%;}
 .nextProject{ font-family: "PT Mono"; font-size: 18px; letter-spacing: 5px; text-align: center;}
 .titleNextProject{ font-family: "didot"; font-size: 64px; text-align: center;}
+
+/* ANIMATION DU HOVER */
+.squareMoveAnimation{ height: 300px; position: absolute; bottom: 0; background-color: #003261; width: 100%; z-index: 3; left: -100%; transition: left .5s ease;}
+.squareMoveAnimation--animation{ left: 100%;}
 
 /* ANIMATION PROJECTS */
 .companyTitle--animation{ letter-spacing: 3px; padding-top: 250px; opacity: 1;}
@@ -138,30 +154,80 @@ a { text-decoration: none; color: #FFF;}
 /* OVERLAY SUR MOBILE */
 .overlayProjectMobile{ z-index: -1; opacity: 0; position: fixed; left: 50vw; top: 50vh; transform: translate(-50%, -50%); margin: auto; width: 90vw; height: 90vh; background-color: #FFF; color: #0A369D; transition: all .5s;}
 .centerItems{ margin: 45vh auto; transform: translateY(-50%); width: 70%;}
-.itemsOverlay{ font-size: 24px; opacity: 0; font-family: "montserrat"; font-weight: bold; text-transform: uppercase; margin-left: 100px; letter-spacing: 15px; line-height: 30px; transition: all 1s;}
+.itemsOverlay{ font-size: 24px; cursor: pointer; opacity: 0; font-family: "montserrat"; font-weight: bold; text-transform: uppercase; margin-left: 100px; letter-spacing: 15px; line-height: 30px; transition: all 1s;}
 .itemsOverlay:nth-child(n+2) { margin-top: 50px;}
-.overlayCloseButton{ position: absolute; bottom: 50px; width: 70%; left: 0; right: 0; margin: auto; font-family: "PT Mono"; font-size: 12px; opacity: 0; transition: all 1s;}
+.overlayCloseButton{ position: absolute; cursor: pointer; bottom: 50px; width: 70%; left: 0; right: 0; margin: auto; font-family: "PT Mono"; font-size: 12px; opacity: 0; transition: all 1s;}
 
 .overlayProject--animation{ z-index: 999; opacity: 1;}
 .itemsOverlay--animation{ letter-spacing: 3px; margin-left: 0; opacity: 1;}
 .overlayCloseButton--animation{ opacity: 1;}
+
+
 /* MEDIA QUERIES */
-@media only screen and (min-width : 375px) and (max-width : 700px) {
+@media(max-width : 1024px) {
+    /* HOMEPAGE */
+    .company { font-size: 50px; letter-spacing: 20px;}
+    /* PAGE ABOUT */
+    .textInfos{ font-size: 20px; line-height: 30px; font-weight: 300; letter-spacing: 0px;}
+}
+
+@media(max-width : 768px) {
+    body{ height: 100vh;}
     /* LOADER */
     .myName{ font-size: 32px;}
 
     /* HOMEPAGE */
     .header{ top: 50px; width: 90vw; font-size: 12px; position: absolute;}
     .sliderInformationContainer { width: 90vw; text-align: left; z-index: 6;}
-    .year { font-size: 24px; letter-spacing: 9px;}
-    .poste { font-size: 24px; letter-spacing: 9px;}
-    .company { font-size: 24px; letter-spacing: 18px; margin-top: 40px; line-height: 30px;}
+    .year { font-size: 38px; letter-spacing: 9px;}
+    .poste { font-size: 38px; letter-spacing: 9px;}
+    .company { font-size: 38px; letter-spacing: 18px; margin-top: 40px; line-height: 45px;}
     .imgSliderContainer { width: 100vw;}
     .imgSlide--1{ background-position: left;}
     .imgSlide--2{ background-position: left;}
-    .imgSlide--3{ background-position: left;}
+    .imgSlide--3{ background-position: center;}
     .sliderButtons{ bottom: 50px; font-size: 12px; width: 90vw;}
     .mobileProject{ display: block;}
     .buttonSlide{ display: none;}
 
+    /* PAGE ABOUT */
+    .imgAboutContainer { position: relative; height: 40%; width: 100%;}
+    .containerInfos{ width: 90%;}
+    .rightInfos{ position: relative; display: block; width: 100%; margin-top: 0; clear: both; transform: none; top: 50px;}
+    .textInfos{ width: 100%; font-size: 20px; line-height: 30px; font-weight: 300; letter-spacing: 0px;}
+    .contactItem{ display: block;}
+    .leftResume{position: relative; margin: auto; width: 75px; top: 0;}
+    .containerInfosLeft{ position: relative; top: 90px; transform: none;}
+    .trait{ display: none;}
+    .textResume{ color: #FB3640; font-size: 12px;}
+    .resume{ text-align: left; color: #FB3640; font-size: 12px;}
+
+    /* PAGE PROJET */
+    .headerProjectTitle{ display: none;}
+    .backgroundHeader{ display: none;}
+    .companyTitle{ font-size: 24px; padding-top: 120px;}
+    .projectTitle{ font-size: 20px; margin-top: 20px;}
+    .detail{  font-size: 14px; margin-top: 20px;}
+    .tools{ width: 90%;}
+    .toolsItem{ font-size: 14px;}
+    .imgContainerProjects{ width: 100%; margin: 40px auto 40px;}
+    .pageContainer{ width: 100%;}
+    .textProject{ font-size: 14px; line-height: 20px; width: 95%; opacity: .6;}
+    .title{ font-size: 16px; margin: 40px auto 40px; width: 95%;}
+    .missions--Flex{ display: block; font-size: 14px; opacity: .6; line-height: 20px; width: 95%;}
+    .left{ display: block; text-align: center; width: 100%;}
+    .right{ display: block; margin-top: 10px; text-align: center; width: 100%;}
+    .footer{ height: 150px;}
+    .nextProject{ font-size: 14px;}
+    .titleNextProject{ font-size: 26px;}
+}
+@media(max-width : 375px) {
+    /* HOMEPAGE */
+    .year { font-size: 24px; letter-spacing: 9px;}
+    .poste { font-size: 24px; letter-spacing: 9px;}
+    .company { font-size: 24px; letter-spacing: 18px; margin-top: 40px; line-height: 30px;}
+
+    /* PAGE ABOUT */
+    .rightInfos{ top: 0px; transform: translateY(-17%); }
+    .containerInfosLeft{ top: 0;}
 }
