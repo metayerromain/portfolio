@@ -1,12 +1,14 @@
 /**
- * ANIMATION AU LANCEMENT D'UNE PAGE
+ * ANIMATION AU LANCEMENT D'UNE PAGE DES ELEMENTS
  */
 setTimeout(function() {
   var homeHeader = document.querySelector(".header");
   homeHeader.classList.add("homeAnimation");
   var homeButtons = document.querySelector(".sliderButtons");
   homeButtons.classList.add("homeAnimation");
-}, 100);
+  var mobileProjects = document.querySelector(".mobileProjects");
+  mobileProjects.classList.add("homeAnimation");
+}, 1500);
 
 /**
  * CHANGEMENT DU CURSOR AU HOVER SUR LINKCURSOR

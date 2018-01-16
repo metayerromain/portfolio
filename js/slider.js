@@ -1,6 +1,7 @@
 var buttonChild = document.querySelectorAll(".buttonSlide");
 var bbMarket = document.querySelectorAll(".bbMarket");
 var busto = document.querySelectorAll(".busto");
+var about = document.querySelectorAll(".about");
 var urbexTravelers = document.querySelectorAll(".urbexTravelers");
 
 var overlay = document.querySelector(".overlayProjectMobile");
@@ -10,24 +11,24 @@ var itemsOverlay = document.querySelectorAll(".itemsOverlay");
 var spam = false;
 
 /**
- * ANIMATION AU LANCEMENT D'UNE PAGE
+ * FORCE L'ANIMATION AU LANCEMENT D'UNE PAGE
  */
-window.onload = function() {
-  //La page chargé on enlève le loader
+setTimeout(function() {
+  //Apres 1s on enlève le loader
   var loader = document.querySelector(".loader");
   loader.classList.add("loader--animation");
   setTimeout(function() {
     loader.style.display = "none";
   }, 500);
 
+  //on active l'animation du contenu
   var activeSlide = document.querySelectorAll(".activeSlide");
-
   var slideActive = document.querySelector(".slide--1");
   slideActive.classList.add("activeSlide");
 
   searchSlide(slideActive);
   urbexTravelers[0].classList.add("activeButton");
-};
+}, 1500);
 
 // EVENT LISTENER SUR MON NOM
 var hover = document.querySelector(".romain");
@@ -42,8 +43,37 @@ for (let i = 0; i < fullName.length; i++) {
     fullName[i].classList.toggle("fullName--animation");
   });
 }
-
-
+/**
+ * HOVER SUR LES PETITS RONDS
+ */
+function textOut(elem) {
+  var text = elem.parentElement.children[0];
+  text.classList.toggle("overlayTitle--animation");
+}
+urbexTravelers[0].addEventListener("mouseover", function() {
+  textOut(urbexTravelers[0]);
+});
+urbexTravelers[0].addEventListener("mouseout", function() {
+  textOut(urbexTravelers[0]);
+});
+bbMarket[0].addEventListener("mouseover", function() {
+  textOut(bbMarket[0]);
+});
+bbMarket[0].addEventListener("mouseout", function() {
+  textOut(bbMarket[0]);
+});
+busto[0].addEventListener("mouseover", function() {
+  textOut(busto[0]);
+});
+busto[0].addEventListener("mouseout", function() {
+  textOut(busto[0]);
+});
+about[0].addEventListener("mouseover", function() {
+  textOut(about[0]);
+});
+about[0].addEventListener("mouseout", function() {
+  textOut(about[0]);
+});
 /**
  * FONCTION QUI GERE LES ANIMATIONS DE LA SLIDE ACTIVE
  */
@@ -55,7 +85,7 @@ function searchSlide(slideActive) {
   var year = document.querySelectorAll(".year");
   var image = document.querySelectorAll(".imgSliderContainer");
 
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 4; i++) {
     poste[i].classList.remove("poste--animation");
     company[i].classList.remove("company--animation");
     year[i].classList.remove("poste--animation");
@@ -93,7 +123,7 @@ window.addEventListener("mousewheel", function(e) {
         activeSlide.classList.remove("activeSlide");
         indexSlideParse--;
         if (indexSlideParse < 1) {
-          indexSlideParse = 3;
+          indexSlideParse = 4;
         }
 
         var active = document.querySelector(".slide--" + indexSlideParse);
@@ -121,7 +151,7 @@ window.addEventListener("mousewheel", function(e) {
         spam = true;
         activeSlide.classList.remove("activeSlide");
         indexSlideParse++;
-        if (indexSlideParse > 3) {
+        if (indexSlideParse > 4) {
           indexSlideParse = 1;
         }
 
@@ -195,6 +225,25 @@ for (var i = 0; i < busto.length; i++) {
       buttonChild[i].classList.remove("activeButton");
     }
     var slideActive = document.querySelector(".slide--3");
+    slideActive.classList.add("activeSlide");
+
+    searchSlide(slideActive);
+    this.classList.add("activeButton");
+    closeOverlay();
+  });
+}
+
+for (var i = 0; i < about.length; i++) {
+  about[i].index = i;
+  about[i].addEventListener("click", function(e) {
+    var activeSlide = document.querySelectorAll(".activeSlide");
+    for (var i = 0; i < activeSlide.length; i++) {
+      activeSlide[i].classList.remove("activeSlide");
+    }
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+    }
+    var slideActive = document.querySelector(".slide--4");
     slideActive.classList.add("activeSlide");
 
     searchSlide(slideActive);
