@@ -32,31 +32,6 @@ for (let i = 0; i < linkCursor.length; i++) {
     circleInner.classList.toggle("circle--animation--1");
   });
 }
-/**
- * ANIMATION TOP PAGE PROJECTS
- */
-var heightDivCompany = document.querySelector(".projectTitle");
-var headerProjectTitle = document.querySelector(".headerProjectTitle");
-var backgroundHeader = document.querySelector(".backgroundHeader");
-var backgroundHeader2 = document.querySelector(".backgroundHeader2");
-
-//ANIMATION HEADER
-window.addEventListener("scroll", function() {
-  var scrollTop = window.scrollY;
-  var height = heightDivCompany.offsetTop;
-  if (scrollTop > height) {
-    backgroundHeader.style.opacity = "1";
-    headerProjectTitle.style.opacity = "1";
-    headerProjectTitle.style.top = "80px";
-  }
-  if (scrollTop < height) {
-    headerProjectTitle.style.top = "30px";
-    headerProjectTitle.style.opacity = "";
-  }
-  if (scrollTop < 30) {
-    backgroundHeader.style.opacity = "";
-  }
-});
 
 /**
  * ANIMATION DES LIENS SUR TOUTES LES PAGES DONC BLC

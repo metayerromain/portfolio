@@ -170,7 +170,6 @@ window.addEventListener("mousewheel", function(e) {
       }, 500)
     }
   }
-
 });
 
 //CLIC SUR CHAQUE BOUTON DU SLIDER
