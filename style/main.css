@@ -197,7 +197,7 @@ a { text-decoration: none; color: #FFF;}
 }
 
 @media(max-width : 768px) {
-    body{ height: 100vh; overflow-y: auto;}
+    body{ height: 100vh; overflow-y: auto; overflow-x: hidden !important;}
     /* LOADER */
     .myName{ font-size: 32px;}
 
