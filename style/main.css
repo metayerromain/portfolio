@@ -49,8 +49,8 @@ a { text-decoration: none; color: #FFF;}
 
 /* CURSOR */
 .circle{ top: -45px; left: -45px; width: 90px; height: 90px; border-radius: 50%; pointer-events: none; display: block; position: fixed; z-index: 99;}
-.circleInner{ display: flex; margin: auto; position: absolute; right: 0;left: 0; width: 90%; border-radius: 50%; height: 90%; transform-origin: center; background-color: #FB3640; opacity: 0; transform: scale(0); transform: translateY(-50%);transition: all .5s;}
-.circleInnerPlus{ margin: auto; font-size: 18px; font-family: "montserrat"; color: #003261; letter-spacing: 3px;}
+.circleInner{ display: flex; margin: auto; position: absolute; right: 0;left: 0; width: 100%; border-radius: 50%; height: 100%; transform-origin: center; background-color: #FB3640; opacity: 0; transform: scale(0); transform: translateY(-50%);transition: all .5s;}
+.circleInnerPlus{ margin: auto; font-size: 18px; font-family: "montserrat"; color: #FFF; letter-spacing: 3px;}
 .circle--animation--1 { transform: scale(1); opacity: .6;}
 
 /* CONTENU STATIC */
@@ -87,8 +87,9 @@ a { text-decoration: none; color: #FFF;}
 .imgSlide--1{ background: url(../img/urbexCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--2{ background: url(../img/bbMarketCover.jpg) no-repeat center; background-size: cover;}
 .imgSlide--3{ background: url(../img/bustoCover.jpg) no-repeat; background-size: cover;}
-.imgSlide--4{ background: url(../img/aboutCover.jpg) no-repeat; background-size: cover; z-index: 0 !important;}
-.sliderInformationContainer { z-index: 0; position: absolute;left: 0; right: 0; width: 80%; margin: auto; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
+.imgSlide--4{ background: url(../img/nespressoCover.jpg) no-repeat center; background-size: cover;}
+.imgSlide--5{ background: url(../img/aboutCover.jpg) no-repeat; background-size: cover;}
+.sliderInformationContainer { z-index: 5; position: absolute;left: 0; right: 0; width: 80%; margin: auto; top: 50vh; transform: translateY(-50%); font-family: "montserrat"; text-transform: uppercase; transition: ease 1s;}
 .year { font-weight: lighter; color: #FB3640; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: margin-left 1s, letter-spacing 1s, opacity 1s; transition-delay: .2s;}
 .poste { margin-top: 10px; font-weight: bold; font-size: 24px; letter-spacing: 40px; margin-left: 100px; opacity: 0; transition: all 1s; transition-delay: .2s;}
 .company { margin-top: 5px; font-weight: bolder; font-size: 80px; letter-spacing: 100px; margin-left: 100px; opacity: 0; transition: margin-left 1s, letter-spacing 1s, opacity 1s; transition-delay: .2s;}
@@ -171,9 +172,9 @@ a { text-decoration: none; color: #FFF;}
 /* OVERLAY SUR MOBILE */
 .overlayProjectMobile{ z-index: -1; opacity: 0; position: fixed; left: 50vw; top: 50vh; transform: translate(-50%, -50%); margin: auto; width: 90vw; height: 90vh; background-color: #FFF; color: #0A369D; transition: all .5s;}
 .centerItems{ margin: 45vh auto; transform: translateY(-50%); width: 70%;}
-.itemsOverlay{ font-size: 24px; cursor: pointer; opacity: 0; font-family: "montserrat"; font-weight: bold; text-transform: uppercase; margin-left: 100px; letter-spacing: 15px; line-height: 30px; transition: all 1s;}
-.itemsOverlay:nth-child(n+2) { margin-top: 50px;}
-.overlayCloseButton{ position: absolute; cursor: pointer; bottom: 50px; width: 70%; left: 0; right: 0; margin: auto; font-family: "PT Mono"; font-size: 12px; opacity: 0; transition: all 1s;}
+.itemsOverlay{ font-size: 16px; cursor: pointer; opacity: 0; font-family: "montserrat"; font-weight: bold; text-transform: uppercase; margin-left: 100px; letter-spacing: 15px; line-height: 20px; transition: all 1s;}
+.itemsOverlay:nth-child(n+2) { margin-top: 20px;}
+.overlayCloseButton{ position: absolute; cursor: pointer; top: 50px; width: 70%; left: 0; right: 0; margin: auto; font-family: "PT Mono"; font-size: 12px; opacity: 0; transition: all 1s;}
 
 .overlayProject--animation{ z-index: 999; opacity: 1;}
 .itemsOverlay--animation{ letter-spacing: 3px; margin-left: 0; opacity: 1;}
@@ -184,17 +185,24 @@ a { text-decoration: none; color: #FFF;}
 @media(max-width : 1024px) {
     /* HOMEPAGE */
     .company { font-size: 50px; letter-spacing: 20px;}
-    /* PAGE ABOUT */
-    .textInfos{ font-size: 20px; line-height: 30px; font-weight: 300; letter-spacing: 0px;}
+    .textAbout{ width: 90%; font-size: 18px; line-height: 24px;}
+
+    /* PAGE PROJET */
+    .companyTitle{ font-size: 16px; opacity: 1;}
+    .projectTitle{ font-size: 14px; margin-top: 20px;}
+    .detail{ font-size: 14px; margin-top: 20px;}
+    .detailItem{ padding-left: 10px;}
+    .tools{ margin-top: 20px;}
+    .toolsItem{ font-size: 14px; margin-right: 10px;}
 }
 
 @media(max-width : 768px) {
-    body{ height: 100vh;}
+    body{ height: 100vh; overflow-y: auto;}
     /* LOADER */
     .myName{ font-size: 32px;}
 
     /* HOMEPAGE */
-    .header{ top: 50px; width: 90vw; font-size: 12px; position: absolute;}
+    .header{ top: 50px; width: 90vw; margin: auto; left: 0; right: 0; font-size: 12px; position: absolute;}
     .sliderInformationContainer { width: 90vw; text-align: left; z-index: 6;}
     .year { font-size: 38px; letter-spacing: 9px;}
     .poste { font-size: 38px; letter-spacing: 9px;}
@@ -207,43 +215,51 @@ a { text-decoration: none; color: #FFF;}
     .mobileProject{ display: block; color: #FFF;}
     .buttonSlide{ display: none;}
     .scrollButton { display: none;}
-
-    /* PAGE ABOUT */
-    .imgAboutContainer { position: relative; height: 40%; width: 100%;}
-    .containerInfos{ width: 90%;}
-    .rightInfos{ position: relative; display: block; width: 100%; margin-top: 0; clear: both; transform: none; top: 50px;}
-    .textInfos{ width: 100%; font-size: 20px; line-height: 30px; font-weight: 300; letter-spacing: 0px;}
-    .contactItem{ display: block;}
-    .leftResume{position: relative; margin: auto; width: 75px; top: 0;}
-    .containerInfosLeft{ position: relative; top: 90px; transform: none;}
-    .trait{ display: none;}
-    .textResume{ color: #FB3640; font-size: 12px;}
-    .resume{ text-align: left; color: #FB3640; font-size: 12px;}
+    .traintScrollContain{ display: none;}
+    .textAbout{ width: 90%; font-size: 14px; line-height: 22px;}
+    .contact{ margin-top: 10px;}
+    .contact a{ margin-right: 10px;}
+    .contactItem{ font-size: 14px;}
 
     /* PAGE PROJET */
-    .headerProjectTitle{ display: none;}
-    .backgroundHeader{ display: none;}
-    .companyTitle{ font-size: 24px; padding-top: 120px;}
-    .projectTitle{ font-size: 20px; margin-top: 20px;}
-    .detail{  font-size: 14px; margin-top: 20px;}
-    .tools{ width: 90%;}
-    .toolsItem{ font-size: 14px;}
-    .imgContainerProjects{ width: 100%; margin: 40px auto 40px;}
-    .pageContainer{ width: 100%;}
-    .textProject{ font-size: 14px; line-height: 20px; width: 95%; opacity: .6;}
-    .title{ font-size: 16px; margin: 40px auto 40px; width: 95%;}
-    .missions--Flex{ display: block; font-size: 14px; opacity: .6; line-height: 20px; width: 95%;}
-    .left{ display: block; text-align: center; width: 100%;}
-    .right{ display: block; margin-top: 10px; text-align: center; width: 100%;}
-    .footer{ height: 150px;}
-    .nextProject{ font-size: 14px;}
-    .titleNextProject{ font-size: 26px;}
+    .pageContainer{ width: 100%; margin: auto; font-family: "montserrat";}
+    .infosLeftContainer { position: relative; width: 100%; text-align: left; height: 70vh;}
+    .centerVertically { top: 50%; left: 0; right: 0; width: 90%; margin: auto;}
+    .containerInfosProject{ opacity: 1;}
+
+    .companyTitle{ font-size: 30px; opacity: 1;}
+    .projectTitle{ font-size: 18px; margin-top: 20px;}
+    .detail{ font-size: 16px; margin-top: 20px;}
+    .detailItem{ padding-left: 10px;}
+    .tools{ margin-top: 20px;}
+    .toolsItem{ font-size: 16px; margin-right: 10px;}
+
+    .scrollAnimAbout{ display: none;}
+
+    .projectRightContainer{ position: relative; width: 100%; padding-top: 100px;}
+    .imgContainerProjects{ width: 100%; margin: 0px auto 100px; box-shadow: 0px 0px 10px 0px grey;}
+    .textProject{ font-size: 18px; line-height: 24px; width: 95%; margin: auto;}
+    .title{ font-size: 20px; margin: 50px auto 50px;}
+    .missions--Flex{ display: block; margin-bottom: 100px; font-size: 18px; line-height: 24px; width: 95%;}
+    .left{ width: 100%;}
+    .right{ width: 100%; margin-top: 20px;}
+
+    .slideProject{ opacity: 1; position: relative; display: block; z-index: 1; transition: none; right: 0; top: 0;}
+    .activeSlideProject{ position: relative; transform: none;}
+    .containerLink{ position: relative; margin-bottom: 100px;}
+    .siteLink { position: relative; top: 0; cursor: none;}
+
+    .footer{ height: 50vh;}
+    .nextProject{ font-size: 16px; letter-spacing: 5px;}
+    .titleNextProject{ font-size: 40px; margin-top: 20px;}
+    .squareMoveAnimation{ height: 50vh;}
 }
 @media(max-width : 375px) {
     /* HOMEPAGE */
     .year { font-size: 24px; letter-spacing: 9px;}
-    .poste { font-size: 24px; letter-spacing: 9px;}
+    .poste { font-size: 16px; letter-spacing: 9px;}
     .company { font-size: 24px; letter-spacing: 18px; margin-top: 40px; line-height: 30px;}
+    .contactItem{ font-size: 12px;}
 
     /* PAGE ABOUT */
     .rightInfos{ top: 0px; transform: translateY(-17%); }

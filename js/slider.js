@@ -3,6 +3,7 @@ var bbMarket = document.querySelectorAll(".bbMarket");
 var busto = document.querySelectorAll(".busto");
 var about = document.querySelectorAll(".about");
 var urbexTravelers = document.querySelectorAll(".urbexTravelers");
+var nespresso = document.querySelectorAll(".nespresso");
 
 var overlay = document.querySelector(".overlayProjectMobile");
 var overlayCloseButton = document.querySelector(".overlayCloseButton");
@@ -68,6 +69,12 @@ busto[0].addEventListener("mouseover", function() {
 busto[0].addEventListener("mouseout", function() {
   textOut(busto[0]);
 });
+nespresso[0].addEventListener("mouseover", function() {
+  textOut(nespresso[0]);
+});
+nespresso[0].addEventListener("mouseout", function() {
+  textOut(nespresso[0]);
+});
 about[0].addEventListener("mouseover", function() {
   textOut(about[0]);
 });
@@ -85,7 +92,7 @@ function searchSlide(slideActive) {
   var year = document.querySelectorAll(".year");
   var image = document.querySelectorAll(".imgSliderContainer");
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < 5; i++) {
     poste[i].classList.remove("poste--animation");
     company[i].classList.remove("company--animation");
     year[i].classList.remove("poste--animation");
@@ -101,7 +108,64 @@ function searchSlide(slideActive) {
   company.classList.add("company--animation");
   year.classList.add("poste--animation");
   image.classList.add("img--animation");
+}
 
+function slideSuivante(activeSlide, indexSlide, indexSlideParse) {
+  var timer = null;
+  if (timer) {
+    clearTimeout(timer);
+  }
+  var timer = setTimeout(() => {
+    timer = null;
+    spam = true;
+    activeSlide.classList.remove("activeSlide");
+    indexSlideParse--;
+    if (indexSlideParse < 1) {
+      indexSlideParse = 5;
+    }
+
+    var active = document.querySelector(".slide--" + indexSlideParse);
+    active.classList.add("activeSlide");
+    searchSlide(active);
+
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+      buttonChild[indexSlideParse - 1].classList.add("activeButton");
+    }
+
+    setTimeout(() => {
+      spam = false;
+    }, 1000)
+  }, 500)
+}
+
+function slidePrecedente(activeSlide, indexSlide, indexSlideParse) {
+  var timer = null;
+  if (timer) {
+    clearTimeout(timer);
+  }
+  var timer = setTimeout(() => {
+    timer = null;
+    spam = true;
+    activeSlide.classList.remove("activeSlide");
+    indexSlideParse++;
+    if (indexSlideParse > 5) {
+      indexSlideParse = 1;
+    }
+
+    var active = document.querySelector(".slide--" + indexSlideParse);
+    active.classList.add("activeSlide");
+    searchSlide(active);
+
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+      buttonChild[indexSlideParse - 1].classList.add("activeButton");
+    }
+
+    setTimeout(() => {
+      spam = false;
+    }, 1000)
+  }, 500)
 }
 
 //ONSCROLL
@@ -112,63 +176,25 @@ window.addEventListener("mousewheel", function(e) {
   var scroll = e.wheelDelta;
 
   if (spam == false) {
-    if (scroll > 0 && scroll < 1000) {
-      var timer = null;
-      if (timer) {
-        clearTimeout(timer);
-      }
-      var timer = setTimeout(() => {
-        timer = null;
-        spam = true;
-        activeSlide.classList.remove("activeSlide");
-        indexSlideParse--;
-        if (indexSlideParse < 1) {
-          indexSlideParse = 4;
-        }
-
-        var active = document.querySelector(".slide--" + indexSlideParse);
-        active.classList.add("activeSlide");
-        searchSlide(active);
-
-        for (var i = 0; i < buttonChild.length; i++) {
-          buttonChild[i].classList.remove("activeButton");
-          buttonChild[indexSlideParse - 1].classList.add("activeButton");
-        }
-
-        setTimeout(() => {
-          spam = false;
-        }, 1000)
-      }, 500)
+    if ((scroll > 0 && scroll < 1000)) {
+      slideSuivante(activeSlide, indexSlide, indexSlideParse);
     }
     if (scroll < 0 && scroll > -1000) {
-
-      var timer = null;
-      if (timer) {
-        clearTimeout(timer);
-      }
-      var timer = setTimeout(() => {
-        timer = null;
-        spam = true;
-        activeSlide.classList.remove("activeSlide");
-        indexSlideParse++;
-        if (indexSlideParse > 4) {
-          indexSlideParse = 1;
-        }
-
-        var active = document.querySelector(".slide--" + indexSlideParse);
-        active.classList.add("activeSlide");
-        searchSlide(active);
-
-        for (var i = 0; i < buttonChild.length; i++) {
-          buttonChild[i].classList.remove("activeButton");
-          buttonChild[indexSlideParse - 1].classList.add("activeButton");
-        }
-
-        setTimeout(() => {
-          spam = false;
-        }, 1000)
-      }, 500)
+      slidePrecedente(activeSlide, indexSlide, indexSlideParse);
     }
+  }
+});
+
+document.addEventListener("keyup", function(event) {
+  var activeSlide = document.querySelector(".activeSlide");
+  var indexSlide = activeSlide.className.split(" ")[1].split("--")[1];
+  var indexSlideParse = parseInt(indexSlide);
+
+  if (event.which == 38) {
+    slideSuivante(activeSlide, indexSlide, indexSlideParse);
+  }
+  if (event.which == 40) {
+    slidePrecedente(activeSlide, indexSlide, indexSlideParse);
   }
 });
 
@@ -232,6 +258,25 @@ for (var i = 0; i < busto.length; i++) {
   });
 }
 
+for (var i = 0; i < nespresso.length; i++) {
+  nespresso[i].index = i;
+  nespresso[i].addEventListener("click", function(e) {
+    var activeSlide = document.querySelectorAll(".activeSlide");
+    for (var i = 0; i < activeSlide.length; i++) {
+      activeSlide[i].classList.remove("activeSlide");
+    }
+    for (var i = 0; i < buttonChild.length; i++) {
+      buttonChild[i].classList.remove("activeButton");
+    }
+    var slideActive = document.querySelector(".slide--4");
+    slideActive.classList.add("activeSlide");
+
+    searchSlide(slideActive);
+    this.classList.add("activeButton");
+    closeOverlay();
+  });
+}
+
 for (var i = 0; i < about.length; i++) {
   about[i].index = i;
   about[i].addEventListener("click", function(e) {
@@ -242,7 +287,7 @@ for (var i = 0; i < about.length; i++) {
     for (var i = 0; i < buttonChild.length; i++) {
       buttonChild[i].classList.remove("activeButton");
     }
-    var slideActive = document.querySelector(".slide--4");
+    var slideActive = document.querySelector(".slide--5");
     slideActive.classList.add("activeSlide");
 
     searchSlide(slideActive);
