@@ -1,0 +1,1289 @@
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/Montserrat-Medium.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/Montserrat-Black.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/Montserrat-Bold.otf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "montserrat";
+  src: url("../fonts/Montserrat-Thin.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "PT Mono";
+  src: url("../fonts/PTMono.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Didot";
+  src: url("../fonts/Didot.ttc");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "bodoni";
+  src: url("../fonts/bodoni.ttc");
+}
+
+body {
+  background-color: #003261;
+  color: #FFF;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+::-moz-selection {
+  color: #003261;
+  background-color: #FFF;
+}
+
+::selection {
+  color: #003261;
+  background-color: #FFF;
+}
+
+/* LOADER */
+
+.loader {
+  background-color: #003261;
+  top: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  -webkit-transition: top .5s;
+  transition: top .5s;
+  -webkit-animation: backgroundAnim 2s infinite;
+  animation: backgroundAnim 2s infinite;
+}
+
+.myName {
+  font-family: "PT Mono";
+  font-size: 64px;
+  margin: auto;
+  -webkit-animation: nameAnim 2s infinite;
+  animation: nameAnim 2s infinite;
+}
+
+.loader--animation {
+  top: -100%;
+}
+
+@-webkit-keyframes backgroundAnim {
+  0% {
+    background-color: #003261;
+  }
+  50% {
+    background-color: #FB3640;
+  }
+  100% {
+    background-color: #003261;
+  }
+}
+
+@keyframes backgroundAnim {
+  0% {
+    background-color: #003261;
+  }
+  50% {
+    background-color: #FB3640;
+  }
+  100% {
+    background-color: #003261;
+  }
+}
+
+@-webkit-keyframes nameAnim {
+  0% {
+    color: #FB3640;
+  }
+  50% {
+    color: #003261;
+  }
+  100% {
+    color: #FB3640;
+  }
+}
+
+@keyframes nameAnim {
+  0% {
+    color: #FB3640;
+  }
+  50% {
+    color: #003261;
+  }
+  100% {
+    color: #FB3640;
+  }
+}
+
+/* CURSOR */
+
+.circle {
+  top: -45px;
+  left: -45px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  pointer-events: none;
+  display: block;
+  position: fixed;
+  z-index: 99;
+}
+
+.circleInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  background-color: #FB3640;
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.circleInnerPlus {
+  margin: auto;
+  font-size: 18px;
+  font-family: "montserrat";
+  color: #FFF;
+  letter-spacing: 3px;
+}
+
+.circle--animation--1 {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: .6;
+}
+
+/* CONTENU STATIC */
+
+.containerAll {
+  overflow-x: hidden;
+}
+
+.fullName {
+  letter-spacing: -10px;
+  opacity: 0;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.fullName--animation {
+  letter-spacing: 3px;
+  opacity: 1;
+}
+
+.link {
+  color: #FFF;
+  -webkit-transition: color .5s;
+  transition: color .5s;
+}
+
+.header {
+  z-index: 5;
+  top: 80px;
+  margin: auto;
+  position: fixed;
+  left: 10%;
+  letter-spacing: 3px;
+  font-family: "PT Mono";
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.redColor {
+  color: #FB3640;
+}
+
+.mobileProject {
+  display: none;
+}
+
+.mobileProjects {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 80px;
+  width: 80%;
+  letter-spacing: 3px;
+  font-family: "PT Mono";
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.mobileProjects:hover {
+  cursor: pointer;
+}
+
+.sliderButtons {
+  z-index: 2;
+  position: absolute;
+  right: 50px;
+  top: 50vh;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.buttonSlide {
+  cursor: pointer;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  right: 5px;
+  border: 2px solid white;
+  background-color: none;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.activeButton {
+  border-color: #FB3640;
+  width: 20px;
+  height: 20px;
+  right: 0;
+}
+
+.scrollAnim {
+  position: absolute;
+  right: -26px;
+  margin-top: 30px;
+}
+
+.traintScrollContain {
+  display: block;
+  margin: auto;
+  height: 25px;
+  width: 3px;
+}
+
+.traitScroll {
+  background-color: #FFF;
+  -webkit-animation: opacityScroll 1s infinite;
+  animation: opacityScroll 1s infinite;
+  height: 24px;
+}
+
+.scrollButton {
+  display: block;
+  letter-spacing: 3px;
+  font-family: "PT Mono";
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  margin-top: 40px;
+}
+
+.overlaySlider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 30px auto 0 auto;
+}
+
+.overlayTitle {
+  opacity: 0;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  font-family: "PT Mono";
+}
+
+.overlayTitle--animation {
+  margin-right: 30px;
+  opacity: 1;
+}
+
+@-webkit-keyframes opacityScroll {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes opacityScroll {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* SLIDER */
+
+.sliderContent {
+  width: 100%;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.imgSliderContainer {
+  z-index: 5;
+  position: absolute;
+  height: 100vh;
+  width: 70%;
+  right: -200px;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.imgSlide--1 {
+  background: url(../img/urbexCover.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.imgSlide--2 {
+  background: url(../img/bbMarketCover.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.imgSlide--3 {
+  background: url(../img/bustoCover.jpg) no-repeat;
+  background-size: cover;
+}
+
+.imgSlide--4 {
+  background: url(../img/nespressoCover.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.imgSlide--5 {
+  background: url(../img/aboutCover.jpg) no-repeat;
+  background-size: cover;
+}
+
+.sliderInformationContainer {
+  z-index: 5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 70%;
+  margin: auto;
+  top: 50vh;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: "montserrat";
+  text-transform: uppercase;
+  -webkit-transition: ease 1s;
+  transition: ease 1s;
+}
+
+.year {
+  font-weight: lighter;
+  color: #FB3640;
+  font-size: 24px;
+  letter-spacing: 40px;
+  margin-left: 100px;
+  opacity: 0;
+  -webkit-transition: margin-left 1s, letter-spacing 1s, opacity 1s;
+  transition: margin-left 1s, letter-spacing 1s, opacity 1s;
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+
+.poste {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 40px;
+  margin-left: 100px;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+
+.company {
+  margin-top: 5px;
+  font-weight: bolder;
+  font-size: 80px;
+  letter-spacing: 100px;
+  margin-left: 100px;
+  opacity: 0;
+  -webkit-transition: margin-left 1s, letter-spacing 1s, opacity 1s;
+  transition: margin-left 1s, letter-spacing 1s, opacity 1s;
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
+}
+
+/* PARTIE ABOUT */
+
+.textAbout {
+  font-weight: 100;
+  text-transform: none;
+  width: 40%;
+  letter-spacing: 0px !important;
+  line-height: 40px;
+}
+
+.contact {
+  margin-top: 20px;
+  letter-spacing: 3px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.contact a {
+  margin-right: 50px;
+}
+
+.contactItem {
+  display: inline;
+  font-family: "PT Mono";
+  font-size: 14px;
+  color: #FFF;
+  -webkit-transition: color .5s linear;
+  transition: color .5s linear;
+}
+
+.contactItem:hover {
+  color: #FB3640;
+}
+
+/* ANIMATION SLIDER */
+
+.homeAnimation {
+  opacity: 1 !important;
+}
+
+.activeSlide {
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+.poste--animation {
+  margin-left: 0;
+  letter-spacing: 9px;
+  opacity: 1;
+}
+
+.company--animation {
+  margin-left: 0;
+  letter-spacing: 40px;
+  opacity: 1;
+}
+
+.img--animation {
+  right: 0;
+  opacity: .5;
+}
+
+/* ANIMATION ABOUT */
+
+.text--animation {
+  letter-spacing: 2px;
+  opacity: 1;
+  margin-left: 0;
+}
+
+.contact--animation {
+  letter-spacing: 0;
+  opacity: 1;
+  margin-left: 0;
+}
+
+.image--animation {
+  right: 0;
+  opacity: .6;
+}
+
+.containerInfosLeft--animation {
+  right: 0;
+  letter-spacing: 5px;
+  opacity: 1;
+}
+
+/* PAGES PROJECTS */
+
+.contenuProject {
+  opacity: 0;
+  letter-spacing: 1px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.backgroundImage {
+  display: none;
+  z-index: -3;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+}
+
+.pageContainer {
+  width: 80%;
+  margin: auto;
+  font-family: "montserrat";
+}
+
+.infosLeftContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 40%;
+  background-color: #003261;
+  z-index: 2;
+}
+
+.centerVertically {
+  position: absolute;
+  top: 50vh;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 25%;
+  width: 70%;
+}
+
+.companyTitle {
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.containerInfosProject {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.projectTitle {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 40px;
+}
+
+.detail {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 100;
+  opacity: .6;
+  margin-top: 40px;
+}
+
+.detailItem {
+  padding-left: 10px;
+}
+
+.tools {
+  margin-top: 40px;
+  font-weight: 100;
+}
+
+.toolsItem {
+  display: inline-block;
+  opacity: .6;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.scrollAnimAbout {
+  position: absolute;
+  bottom: 100px;
+  left: 20%;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.projectRightContainer {
+  position: absolute;
+  width: 60%;
+  right: 0;
+  top: 0;
+  color: #003261;
+  background-color: #FFF;
+}
+
+.imgContainerProjects {
+  width: 80%;
+  margin: 100px auto 100px;
+  -webkit-box-shadow: 0px 0px 100px 0px grey;
+  box-shadow: 0px 0px 100px 0px grey;
+}
+
+.imgContainerProjects img {
+  width: 100%;
+  height: auto;
+}
+
+.textProject {
+  font-size: 24px;
+  line-height: 40px;
+  width: 80%;
+  margin: auto;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 5px;
+  margin: 100px auto 100px;
+  text-align: center;
+}
+
+.missions--Flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 40%;
+}
+
+.containerLink {
+  margin-bottom: 100px;
+}
+
+/* PAGE BUSTO */
+
+.bustoTitle {
+  font-size: 48px;
+  font-family: "Didot";
+  margin-bottom: 50px;
+}
+
+.colorsTitle {
+  width: 70%;
+  margin: 0 auto 50px auto;
+}
+
+.colors--Flex {
+  display: flex;
+  width: 70%;
+  margin: 0 auto 50px auto;
+  justify-content: space-between;
+}
+
+.color {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+}
+
+.white {
+  background-color: #FFF;
+}
+
+.black {
+  background-color: #000;
+}
+
+.gold {
+  background-color: #B78916;
+}
+
+.fonts--Flex {
+  display: flex;
+  width: 70%;
+  margin: 0 auto 50px auto;
+  justify-content: space-between;
+}
+
+.font {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: black;
+}
+
+.font2 {
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.bodoni {
+  font-family: "bodoni";
+}
+
+.bodoniItalic {
+  font-family: "bodoni";
+  font-style: italic;
+}
+
+.didot {
+  font-family: "Didot";
+}
+
+.imgContainer {
+  width: 200px;
+  height: 200px;
+}
+
+.imgContainer img {
+  width: 100%;
+}
+
+.siteLink {
+  color: #003261;
+  text-align: center;
+  width: 150px;
+  margin: auto;
+}
+
+/* ANIMATION PROJECTS */
+
+.companyTitle--animation {
+  letter-spacing: 5px;
+  opacity: 1;
+}
+
+.containerInfosProject--animation {
+  letter-spacing: 5px;
+  opacity: 1;
+}
+
+.contenuProject--animation {
+  opacity: 1;
+  letter-spacing: 0;
+}
+
+.footer {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  color: #FFF;
+  background-size: cover;
+}
+
+.footerImgBusto {
+  background: url(../img/bustoCoverFooter.jpg) no-repeat center;
+}
+
+.footerImgUrbex {
+  background: url(../img/urbexCoverFooter.jpg) no-repeat center;
+}
+
+.footerImgBbmarket {
+  background: url(../img/bbmarketCoverFooter.jpg) no-repeat center;
+}
+
+.footerImgNespresso {
+  background: url(../img/nespressoCoverFooter.jpg) no-repeat center;
+}
+
+.centerVerticalFooter {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.nextProject {
+  font-family: "PT Mono";
+  font-size: 18px;
+  letter-spacing: 5px;
+  text-align: center;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.titleNextProject {
+  font-family: "didot";
+  font-size: 64px;
+  margin-top: 20px;
+  text-align: center;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+/* ANIMATION DU FOOTER */
+
+.squareMoveAnimation {
+  height: 100vh;
+  position: absolute;
+  bottom: 0;
+  background-color: #FB3640;
+  width: 100%;
+  z-index: 0;
+  left: -100%;
+  opacity: .7;
+  -webkit-transition: left 1.2s ease;
+  transition: left 1.2s ease;
+}
+
+.squareMoveAnimation--animation {
+  left: 100%;
+}
+
+/* HOVERS ANIMATIONS */
+
+.link.fadeLink {
+  color: #FB3640;
+}
+
+.trait.fadeout {
+  background-color: #FB3640;
+}
+
+.resume.fadeout {
+  color: #FB3640;
+}
+
+.textResume.fadeout {
+  color: #FB3640;
+}
+
+.contactItem.fadeItemsContact {
+  color: #FB3640;
+}
+
+.school:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* OVERLAY SUR MOBILE */
+
+.overlayProjectMobile {
+  z-index: -1;
+  opacity: 0;
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
+  background-color: #FFF;
+  color: #0A369D;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+.centerItems {
+  margin: 45vh auto;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 70%;
+}
+
+.itemsOverlay {
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 0;
+  font-family: "montserrat";
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 100px;
+  letter-spacing: 15px;
+  line-height: 20px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.itemsOverlay:nth-child(n+2) {
+  margin-top: 20px;
+}
+
+.overlayCloseButton {
+  position: absolute;
+  cursor: pointer;
+  top: 50px;
+  width: 70%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-family: "PT Mono";
+  font-size: 12px;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.overlayProject--animation {
+  z-index: 999;
+  opacity: 1;
+}
+
+.itemsOverlay--animation {
+  letter-spacing: 3px;
+  margin-left: 0;
+  opacity: 1;
+}
+
+.overlayCloseButton--animation {
+  opacity: 1;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width: 1024px) {
+  /* HOMEPAGE */
+  .company {
+    font-size: 50px;
+    letter-spacing: 20px;
+  }
+  .textAbout {
+    width: 90%;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  /* PAGE PROJET */
+  .companyTitle {
+    font-size: 16px;
+    opacity: 1;
+  }
+  .projectTitle {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .detail {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .detailItem {
+    padding-left: 10px;
+  }
+  .tools {
+    margin-top: 20px;
+  }
+  .toolsItem {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
+@media(max-width: 768px) {
+  body {
+    height: 100vh;
+    overflow-y: auto;
+  }
+  /* LOADER */
+  .myName {
+    font-size: 32px;
+  }
+  /* HOMEPAGE */
+  .header {
+    top: 50px;
+    width: 90vw;
+    margin: auto;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+    position: absolute;
+  }
+  .sliderInformationContainer {
+    width: 90vw;
+    text-align: left;
+    z-index: 6;
+  }
+  .year {
+    font-size: 38px;
+    letter-spacing: 9px;
+  }
+  .poste {
+    font-size: 38px;
+    letter-spacing: 9px;
+  }
+  .company {
+    font-size: 38px;
+    letter-spacing: 18px;
+    margin-top: 40px;
+    line-height: 45px;
+  }
+  .imgSliderContainer {
+    width: 100vw;
+  }
+  .imgSlide--1 {
+    background-position: left;
+  }
+  .imgSlide--2 {
+    background-position: left;
+  }
+  .imgSlide--3 {
+    background-position: center;
+  }
+  .mobileProjects {
+    bottom: 50px;
+    font-size: 12px;
+    width: 90vw;
+  }
+  .mobileProject {
+    display: block;
+    color: #FFF;
+  }
+  .buttonSlide {
+    display: none;
+  }
+  .scrollButton {
+    display: none;
+  }
+  .traintScrollContain {
+    display: none;
+  }
+  .textAbout {
+    width: 90%;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .contact {
+    margin-top: 10px;
+  }
+  .contact a {
+    margin-right: 10px;
+  }
+  .contactItem {
+    font-size: 14px;
+  }
+  /* PAGE PROJET */
+  .pageContainer {
+    width: 100%;
+    margin: auto;
+    font-family: "montserrat";
+  }
+  .infosLeftContainer {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    height: 70vh;
+  }
+  .centerVertically {
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: auto;
+  }
+  .containerInfosProject {
+    opacity: 1;
+  }
+  .companyTitle {
+    font-size: 30px;
+    opacity: 1;
+  }
+  .projectTitle {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  .detail {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .detailItem {
+    padding-left: 10px;
+  }
+  .tools {
+    margin-top: 20px;
+  }
+  .toolsItem {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .scrollAnimAbout {
+    display: none;
+  }
+  .projectRightContainer {
+    position: relative;
+    width: 100%;
+    padding-top: 100px;
+  }
+  .imgContainerProjects {
+    width: 100%;
+    margin: 0px auto 100px;
+    -webkit-box-shadow: 0px 0px 20px 0px grey;
+    box-shadow: 0px 0px 20px 0px grey;
+  }
+  .textProject {
+    font-size: 18px;
+    line-height: 24px;
+    width: 95%;
+    margin: auto;
+  }
+  .title {
+    font-size: 20px;
+    margin: 50px auto 50px;
+  }
+  .missions--Flex {
+    display: block;
+    margin-bottom: 100px;
+    font-size: 18px;
+    line-height: 24px;
+    width: 95%;
+  }
+  .left {
+    width: 100%;
+  }
+  .right {
+    width: 100%;
+    margin-top: 20px;
+  }
+  /*PAGE BUSTO*/
+  .bustoTitle {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .colorsTitle {
+    margin: 0 auto 20px auto;
+  }
+  .color {
+    width: 90px;
+    height: 90px;
+  }
+  .fonts--Flex {
+    display: block;
+  }
+  .fonts {
+    margin-bottom: 50px;
+  }
+  .imgContainer {
+    width: 100px;
+    height: 100px;
+  }
+  .slideProject {
+    opacity: 1;
+    position: relative;
+    display: block;
+    z-index: 1;
+    -webkit-transition: none;
+    transition: none;
+    right: 0;
+    top: 0;
+  }
+  .activeSlideProject {
+    position: relative;
+    -webkit-transform: none;
+    transform: none;
+  }
+  .containerLink {
+    position: relative;
+    margin-bottom: 100px;
+  }
+  .siteLink {
+    position: relative;
+    top: 0;
+    cursor: none;
+  }
+  .footer {
+    height: 50vh;
+  }
+  .nextProject {
+    font-size: 16px;
+    letter-spacing: 5px;
+  }
+  .titleNextProject {
+    font-size: 40px;
+    margin-top: 20px;
+  }
+  .squareMoveAnimation {
+    height: 50vh;
+  }
+}
+
+@media(max-width: 375px) {
+  body {
+    overflow-x: hidden;
+  }
+  /* HOMEPAGE */
+  .year {
+    font-size: 24px;
+    letter-spacing: 9px;
+  }
+  .poste {
+    font-size: 16px;
+    letter-spacing: 9px;
+  }
+  .company {
+    font-size: 24px;
+    letter-spacing: 18px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+  .contactItem {
+    font-size: 12px;
+  }
+  /* PAGE BUSTO */
+  .color {
+    width: 70px;
+    height: 70px;
+  }
+  /* PAGE ABOUT */
+  .rightInfos {
+    top: 0px;
+    -webkit-transform: translateY(-17%);
+    transform: translateY(-17%);
+  }
+  .containerInfosLeft {
+    top: 0;
+  }
+}
